@@ -1,0 +1,44 @@
+<%# start the form tag for (quick) search results -%>
+<% form_remote_tag(:html => {:id => 'search_form'},
+					:update => 'results',
+					:complete => 'showResults(true);',
+					:loading => 'showResults(false);',
+					:url => "#{Site.full_url}/search") do -%>
+
+    <p><%= Site.site_description %></p>
+
+    <%= Site.delicious_info %>
+	
+    <h3>RSS Feeds</h3>
+    <ul>
+      <li class="feed"><%= content_tag :a, "articles", :href => Site.rss_url, :title => "Article Feed" %></li>
+      <li class="feed"><%= content_tag :a, "comments", :href => Site.comments_rss_url, :title => "Comment Feed" %></li>
+    </ul>
+
+    <h3>Other Stuff</h3>
+    <ul>
+      <li class="archive"><a href="<%= Site.full_url %>/archives" title="Archives">archives</a></li>
+      <li class="search"><a href="javascript:;" id="showSearch" title="Search this site" onclick="showSearch();">search</a></li>
+    </ul>
+    
+    <div id="search" style="display:none">
+    	Search:&nbsp;&nbsp;<input type="text" name="q" id="q" onfocus="searchFocus()"/>
+    </div>
+    <div id="search_results" style="display:none">
+      <h3>Results:</h3>
+      <span id="loading"></span><span id="results"></span>
+      <h4>(escape to close)</h4>
+    </div>
+	
+    <h3>Crankin&rsquo;</h3>
+    <ul>
+      <li><a href="http://freedraw.it/" title="Virtual Whiteboard">Freedraw</a></li>
+      <li class="handle"><a href="http://handle.it/" title="Closed now">HandleIT</a></li>
+      <li class="rubyforge"><a href="http://rubyforge.org/projects/handle/" title="Some older stuff on RubyForge">RubyForge</a></li>
+      <li><a href="http://github.com/JasonKing" title="GitHub plugins and gems">GitHub</a></li>
+    </ul>
+
+<a href="http://www.workingwithrails.com/recommendation/new/person/15650-jason-king"><img alt="Recommend Me" src="http://workingwithrails.com/images/tools/compact-small.jpg" /></a>
+
+<% end -%>
+<%# end (quick) search form tag -%>

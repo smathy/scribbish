@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<%= get_pref('LANGUAGE') %>">
+  <head>
+    <link type="image/png" rel="shortcut icon" href="<%= theme_image_path('icon.png') %>"/>
+
+    <title><%= Site.site_name %>.<%= ' ' + $page_title %></title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="mssmarttagspreventparsing" content="true"/>
+    <%= Site.default_meta_tags %>
+    <%= Site.icbm_meta_tag %>
+    <%= Site.esbn_meta_tag %>
+    <%= Site.issn_meta_tag %>
+    <%= auto_discovery_link_tag :rss, Site.rss_url, :title => 'Primary Feed' %>
+		<%= theme_stylesheet_link_tag 'application.css', :media => 'all' %>
+		<%= theme_javascript_include_tag 'site' %>
+		<%= theme_javascript_include_tag 'prototype' %>
+		<%= theme_javascript_include_tag 'lightbox' %>
+  </head>
+
+  <body<%= Site.body_id %>>
+    <div id="top"></div>
+    <div id="container">
+      <%= render :partial => 'includes/browser_check' %>
+
+      <div id="header">
+        <h1><span><%= link_to Site.site_name, (Site.full_url == '' ? '/' : Site.full_url), :title => Site.site_name %></span></h1>
+        <h2><%= Site.slogan %></h2>
+      </div> <!-- header -->
+
+      <div id="page">
+        <div id="content">
+          <%= yield %>					
+        </div> <!-- content -->
+
+        <div id="sidebar">
+          <%= render :partial => 'includes/sidebar' %>
+        </div> <!-- sidebar -->
+
+        <br style="clear:both;"/>
+      </div> <!-- page -->
+
+      <div id="footer">
+        <%= render :partial => 'includes/footer' %>
+      </div> <!-- footer -->
+
+      <%= Site.mint_tag %>
+    </div> <!-- container -->
+  </body>
+</html>

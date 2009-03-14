@@ -1,0 +1,4 @@
+    <div class="item_details">
+        <h3 class="title"><%= link_to post.title, Post.permalink(post) %></h3>
+        <p class="author">Posted by <cite><%= post.author.name -%></cite> <abbr class="published" title="<%= post.created_at -%>"><span title="<%= post.created_at.strftime(Preference.get_setting('date_format')) -%> at <%= post.created_at.strftime(Preference.get_setting('time_format')) -%>"><%= time_ago_in_words(post.created_at) %> ago</span></abbr></p>
+    </div>
