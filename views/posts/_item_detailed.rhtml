@@ -87,12 +87,11 @@
                     <td class="fields"><%= text_area 'comment', 'body_raw', :rows => 5, :cols => 45, :wrap => 'virtual', :onkeypress => "this.form.elements['human_check'].value = '8'" %></td>
                 </tr>
                 <tr>
-                    <th class="labels">&nbsp;</th>
-                    <td class="fields submit">
-                        <div class="submit_area">
-                            <%= submit_tag 'Submit comment', :class => 'submit', :onclick => "this.form.elements['human_check'].value = '8'" %>
-                        </div>
-                    </td>
+                  <td></td>
+                  <td class="fields submit">
+                    <div class="left"><%= syntax_link %></div>
+                    <%= submit_tag 'Submit comment', :class => 'submit', :onclick => "this.form.elements['human_check'].value = '8'" %>
+                  </td>
                 </tr>
             </table>
             
