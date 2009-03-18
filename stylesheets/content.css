@@ -149,6 +149,7 @@
 	font: normal 11px Monaco, "bitstream vera sans mono", "lucida console", "courier new", courier, serif;
 	margin: 0; padding: 8px;
   border: 1px solid #eee;
+  margin-bottom: 1em;
 }
 
 /* Article Entries - class names based on http://microformats.org/wiki/hatom] */
