@@ -32,7 +32,7 @@
       <div class="comment <%= cycle("odd", "even") %>" id="c<%= comment.id.to_s %>">
         <div class="author">
           <% if show_gravatars -%>
-            <div class="gravatar"><img src="<%= get_gravatar_url(comment.email) %>"/></div>
+            <div class="gravatar"><a href="http://gravatar.com/" title="Gravatar"><img src="<%= get_gravatar_url(comment.email) %>"/></a></div>
           <% end -%>
           <cite><%= ca = comment_author(comment); ca = "Anonymous Coward" if ca.blank?; ca %></cite>
           <abbr class="published" title="<%= comment.created_at -%>"><span title="<%= comment.created_at.strftime(Preference.get_setting('date_format')) -%> at <%= comment.created_at.strftime(Preference.get_setting('time_format')) -%>"><%= distance_of_time_in_words(comment.created_at, post.created_at) %> later</span></abbr>&hellip;
